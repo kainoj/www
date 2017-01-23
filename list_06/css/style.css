@@ -1,0 +1,73 @@
+#wrapper {
+    width: 100%;
+
+}
+
+
+#game, #score, #score2 {
+    background-color: rgba(200,200,200,0.5);
+
+    padding: 20px;
+    border-radius: 20px;
+   
+    
+    
+     display: table;
+    margin: 0 auto;
+    
+   /* margin: 100px;*/
+    /*top: 50%;
+  //left: 50%;
+  transform: translate(-50%, -50%);*/
+
+    
+}
+
+#game {
+    margin-top: 100px;
+}
+
+#score, #score2 {
+    margin-top: 10px;
+}
+
+
+.tile {
+    background-color: dodgerblue;
+    width:  100px;
+    height: 100px;
+    float: left;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    
+   
+ 
+    
+    border-radius: 25px;
+    text-align: center;
+    font-size: 50px;
+    opacity: 0.5;
+}
+
+.tile:nth-child(5n+1) {
+    clear:left;
+}
+
+
+
+.fa {
+   margin-top:25px;
+   opacity: 0;
+}
+
+
+
+body{
+     background-color: #fff; 
+background-image: 
+
+linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em;
+    /* http://lea.verou.me/css3patterns/#lined-paper */
+    
+}
