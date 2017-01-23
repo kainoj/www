@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Index  </title>
+</head>
+
+<body>
+ 	http://www.dofactory.com/javascript/strategy-design-pattern
+
+  <script>
+  
+
+  	var Podroz = function() {
+  		this.przewoznik = "";
+  	}
+
+  	Podroz.prototype = {
+  		strategia: function(przewoznik) {
+  			this.przewoznik = przewoznik;
+  		},
+
+  		cena: function(km) {
+  			return this.przewoznik.cena(km);
+  		}
+  	}
+
+  	var PkpIntercity = function() {
+  		var zaKilometr = 0.5;
+  		this.cena = function(km) {
+  			return km*zaKilometr;
+  		}
+  	}
+
+  	var PkpIntercityPremium = function() {
+  		var zaKilometr = 1.5;
+  		this.cena = function(km) {
+  			return km*zaKilometr+10;
+  		}
+  	}
+
+  	var Samolot = function() {
+  		var zaKilometr = 1;
+  		this.cena = function(km) {
+  			return km*zaKilometr+11.2;
+  		}
+  	}
+
+  	var trasa = {z: "wro", do: "waw", "km": 444};
+
+  	var pkpintercity = new PkpIntercity();
+  	var pkppremium 	 = new PkpIntercityPremium();
+  	var samolot 	 = new Samolot();
+
+  	var podroz = new Podroz();
+
+  	podroz.strategia(pkpintercity);
+  	console.log("pkp: " + podroz.cena(trasa.km));
+
+
+  	podroz.strategia(pkppremium);
+  	console.log("pedolino: " + podroz.cena(trasa.km));
+
+
+
+  	podroz.strategia(samolot);
+  	console.log("samolot: " + podroz.cena(trasa.km));
+
+
+  </script>
+</body>
+</html>

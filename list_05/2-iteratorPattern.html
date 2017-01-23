@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Index  </title>
+</head>
+
+<body>
+ 	http://www.dofactory.com/javascript/iterator-design-pattern
+
+  <script>
+    
+
+  	var Fib = function() {
+        this.prev = 0;
+        this.curr = 1;
+    }
+ 
+    Fib.prototype = {
+        first: function() {
+            this.reset();
+            return this.next();
+        },
+        next: function() {
+            var nxt = this.prev + this.curr;
+            this.prev = this.curr;
+            this.curr = nxt;
+            return nxt;
+        },
+        hasNext: function() {
+            return true;
+        },
+        reset: function() {
+            this.prev = 0;
+            this.curr = 1;
+        },
+        each: function(callback) {
+            for (var item = this.first(); this.hasNext(); item = this.next()) {
+                callback(item);
+            }
+        }
+      }
+
+      var fib = new Fib();
+
+      for( var i=0; i<10; i++)
+        console.log(fib.next());
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Index</title>
+
+  <style type="text/css">
+  		.valid {
+  			color: green;
+  			display: none;
+  		}
+  		.invalid {
+  			color: red;
+  			display: none;
+  		}
+
+  </style>
+
+
+</head>
+
+
+<body>
+   
+   <form>
+
+		Podaj numer konta: (w celech debug nr konta ma 4 cyfry) <br/>
+			<input type="text" name="accnmbr" id="accNmbr"> <br/>
+
+			<div id="accNmbrValidation">
+				<div class="valid"> Numer poprawny. </div>
+				<div class="invalid"> Numer powienien mieć dokładnie 4 (26) cyft </div>
+			</div>
+
+		<!-- ########################################## -->
+
+		Pesel: <br/>
+			<input type="text" name="psel" id="pesel">
+		
+			
+			<div id="peselValidation">
+				<div class="valid"> Pesel poprawny </div>
+				<div class="invalid"> Numer pesel powienien mieć dokładnie 11 cyft </div>
+			</div>
+
+		<!-- ########################################## -->
+
+		Data urodzenia w formacie : <br/>
+		<input type="text" required name="date" id="date">
+			<div id="dateValidation">
+				<div class="valid"> data popraway </div>
+				<div class="invalid"> data winna byc w formacie dd-mm-rrrr </div>
+			</div>
+
+		<!-- ########################################## -->
+
+		Adres email: <br/>
+			<input type="text" placeholder="jan.kowalski@example.com" id="mail"> <br/>
+				<div id="mailValidation">
+					<div class="valid"> mail poprawny </div>
+					<div class="invalid"> mail niepoprawany </div>
+				</div>
+
+
+			<input type="submit" name="transferForm">
+		</form>
+
+	<script>
+
+	
+	  function isValidMsg(itemId) {
+	  	document.getElementById(itemId).getElementsByClassName('valid')[0].style.display = 'block';
+		document.getElementById(itemId).getElementsByClassName('invalid')[0].style.display = 'none';
+	  }
+
+	  function isNotValidMsg(itemId) {
+		document.getElementById(itemId).getElementsByClassName('valid')[0].style.display = 'none';
+		document.getElementById(itemId).getElementsByClassName('invalid')[0].style.display = 'block';
+	  }
+
+
+
+  	function checkAccNmbrValidity() {
+  		
+  		var accNmbr = document.getElementById( "accNmbr" ).value;
+  		var accNmbrPattern = new RegExp('[0-9]{4}');
+
+  		if( accNmbrPattern.test(accNmbr) ) {
+  			isValidMsg('accNmbrValidation')
+  			return true;
+  		}
+  		else {
+  			isNotValidMsg('accNmbrValidation');
+  			return false;
+  		}		
+  	}
+
+  	function checkPeselValidity() {
+
+  		var pesel = document.getElementById( "pesel" ).value;
+  		var peselPattern = new RegExp('[0-9]{11}');
+  		if( peselPattern.test(pesel) ) {
+  			isValidMsg('peselValidation');
+  			return true;
+  		}
+  		else {
+  			isNotValidMsg('peselValidation');
+  			return false;
+  		}  		
+  	}
+
+  	function checkDateValidity() {
+  		var valid = false;
+
+  		var date = document.getElementById( "date" ).value;
+
+  		var matches = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/.exec(date);
+	    if (matches == null) 
+	    	valid = false;
+		else {
+		    var d = matches[1];
+		    var m = matches[2] - 1; // mc w js od 0-styczen
+		    var y = matches[3];
+
+		    console.log(d+m+y);
+		    var composedDate = new Date(y, m, d);
+	    	valid = composedDate.getDate() == d &&
+	            composedDate.getMonth() == m &&
+	            composedDate.getFullYear() == y;
+	     }
+
+	     if(valid) {
+	     	isValidMsg('dateValidation');
+	     	return true;
+	     }
+	     else {
+	     	isNotValidMsg('dateValidation');
+	     	return false;
+	     }
+  	}
+
+  	function checkMailValidity() {
+  		var mail = document.getElementById("mail").value;
+
+
+  		// to jest rzekomo regexp wzięty prosto z chroma
+  		 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+    	if( re.test(mail) ) {
+    		isValidMsg('mailValidation');
+	     	return true;
+	     }
+	     else {
+	     	isNotValidMsg('mailValidation');
+	     	return false;
+	     }
+    	
+
+
+  	}
+
+
+  	document.getElementById('accNmbr').addEventListener("blur", checkAccNmbrValidity);
+  	document.getElementById('pesel'  ).addEventListener("blur", checkPeselValidity);
+  	document.getElementById('date'   ).addEventListener('blur', checkDateValidity);
+  	document.getElementById('mail'   ).addEventListener('blur', checkMailValidity)
+
+
+
+  </script>
+  		
+</body>
+</html>
+
+
+
+
+<!--
+		
+		
+
+
+		Adres email: <br/>
+			<input type="email" name="mail" required placeholder="jan.kowalski@example.com"> <br/>
+
+		
+
+		
+
+-->
+

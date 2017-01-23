@@ -1,0 +1,108 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Index  </title>
+</head>
+
+<body>
+ 
+
+  <script>
+  
+  		function Vehicle() {
+  			var currentPosition;
+  			var fuelConsumption;
+			var tankStatus;
+
+			 if (this.constructor === Vehicle) {
+     			 throw new Error("Can't instantiate abstract class!");
+    		}
+
+			Object.defineProperty(this, 'currentPosition', {
+
+				get: function() {
+					return currentPosition;
+				},
+				set: function(val) {
+					currentPosition = val;
+				}
+
+			});
+
+
+			Object.defineProperty(this, 'fuelConsumption', {
+
+				get: function() {
+					return fuelConsumption;
+				},
+				set: function(val) {
+					fuelConsumption = val;
+				}
+
+			});
+
+			Object.defineProperty(this, 'tankStatus', {
+
+				get: function() {
+					return tankStatus;
+				},
+				set: function(val) {
+					tankStatus = val;
+				}
+
+			});
+
+
+			this.move = function(x,y) {
+				currentPosition+=x+y;
+				tankStatus-=x*fuelConsumption;
+			}
+
+			this.loadFuel = function(fuelAmount) {
+				tankStatus+=fuelAmount;
+			}
+
+			this.printLog = function() {
+				console.log("currentPosition:\t"+ currentPosition);
+				console.log("fuelConsumption:\t"+fuelConsumption);
+				console.log("tankStatus:\t\t"+tankStatus);
+				console.log("##########");
+			}
+		
+  		}
+
+  		function Car() {
+  			Vehicle.call(this);
+  		}
+
+  		function Truck() {
+  			Vehicle.call(this);
+  		}
+
+
+
+
+  		var c = new Car();
+  		var t = new Truck();
+
+  		c.currentPosition = 0;
+  		c.tankStatus	  = 10;
+  		c.fuelConsumption = 1; 
+
+  		t.currentPosition = 0;
+  		t.tankStatus	  = 10;
+  		t.fuelConsumption = 1;
+
+  		c.printLog();
+  		t.printLog();
+
+  		c.move(1,1);
+
+  		c.printLog();
+
+  </script>
+</body>
+</html>

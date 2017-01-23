@@ -1,0 +1,46 @@
+
+
+ <!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Primes  </title>
+</head>
+
+<body>
+  Prime numbers.
+
+  <script>
+  
+    function isPrime(p) {
+      
+      for (var d=2; d*d<=p; d++) {
+        if( p % d == 0)
+          return false;
+      }  
+    }
+
+
+    function* primeGenerator(n) {
+      yield 2;
+      var p = 3;
+      
+      while( true ) {
+          console.log("next p = " + p);
+          if( isPrime(p) ) { 
+            yield p;
+          }
+          p+=2;
+      }
+    }
+
+    var gen = primeGenerator();
+    for(var i=0; i<5; i++)
+       console.log(gen.next().value);
+
+
+  </script>
+</body>
+</html>

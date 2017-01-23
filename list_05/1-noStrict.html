@@ -1,0 +1,88 @@
+
+
+ <!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>  </title>
+</head>
+
+<body>
+ First, strict mode eliminates some JavaScript silent errors by changing them to throw errors. Second, strict mode fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode. Third, strict mode prohibits some syntax liklefy to be defined in future versions of ECMAScript.
+
+  <script >
+  		
+  		var tab = [1,2,3,4,5,6,7,8,9,10];
+  		
+  		function minimum(a, b) {
+  			if( a < b) return a;
+  			return b;
+  		}
+
+  		function maximum(a, b) {
+  			if (a < b) return b;
+  			return a;
+  		}
+
+  		function merge(t1, t2) {
+  			
+  			var res = [];
+  			var i=0, j=0;
+  			while ( i<t1.length && j<t2.length ) {
+  				if( t1[i] < t2[j] ) {
+  					res.push(t1[i]);
+  					i++;
+  				}
+  				else {
+  					res.push(t2[j]);
+  					j++;
+  				}
+  			}
+
+  			for(var k=i; k<t1.length; k++)
+  				res.push(t1[k]);
+
+  			for(var k=j; k<t2.length; k++) 
+  				res.push(t2[k]);
+  			return res;
+  		}
+
+  		function mergeSort( tab ) {
+  			//console.log("Tab: " + tab + "\t is a " + (typeof tab));
+  			if ( tab.length == 1 )
+  				return tab;
+  			if( tab.length == 2) {
+  				return [ minimum(tab[0], tab[1]), maximum(tab[0], tab[1])];
+  			}
+  			var s = tab.length /2;
+  			var t1 = mergeSort(tab.slice(0,s));
+  			var t2 = mergeSort(tab.slice(s, tab.length));
+
+  			return merge(t1, t2);
+  		}
+
+  		
+
+  		tab = [120,13,35,46,34,6,3,45,6,2,54,65,45,45,45,3,3,5,5,6,7,2,3,4,334,3433436,7,457,34567357,134535,247,2547,357,8797699,345,23,435,357,26,26,256,26,56,8,4,34,3245535,234453535,45,45,4,75,7,8,78,4,2,56,78,2,45,66,9,3445,6,6,45,6,6,45,45,346,456,56,56,356,3456,567,6778,678,556,678,2,87];
+
+
+
+      function perf() {
+          var then = performance.now();
+          for (var i=0; i<100; i++)
+              mergeSort(tab);
+          var now = performance.now();
+          return now - then;
+      }
+
+      var n=1000;
+      var avg=0;
+      for(var i=0; i<n; i++)
+          avg += perf();
+        avg /= n;
+      console.log('no strict sort avg performance: '+  avg);
+  </script>
+</body>
+</html>

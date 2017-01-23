@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)file:///C:/Users/przemek/Desktop/kurs%20WWW/lista_05/4-devtools.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <title> Dev tools  </title>
+
+  <style>
+    #menu {
+      border-style: solid;
+      border-color: blue;
+    }
+    #content {
+      border-style: solid;
+      border-color: yellow;
+    }
+    #sidebar {
+      border-style: solid;
+      border-color: green;
+    }
+
+    #kwadrat {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+      visibility: hidden;
+    }
+
+  </style>
+</head>
+
+<body>
+  
+  <div id="menu">
+
+    <a href="#" onclick="setColor('red')">Czerwony</a>
+    <a href="#" onclick="setColor('black')">Czarny</a>
+    <a href="#" onclick="setColor('brown')">Brązowy</a>
+    
+
+  </div>
+  <div id="content">
+      <div id="kwadrat"></div>
+  </div>
+  <div id="sidebar"> <ul id="hist"></ul></div>
+  
+
+  <script>
+    
+    function setColor(col) {
+        document.getElementById('kwadrat').style.visibility ="visible";
+        document.getElementById('kwadrat').style.backgroundColor = col; // camelCase required
+
+        var ul = document.getElementById("hist");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(col));
+        ul.appendChild(li);
+
+    }
+
+  </script>
+
+</body></html>
