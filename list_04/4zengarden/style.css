@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url(print-style.css) print;
+
+body {
+    font-family: 'Raleway', sans-serif;
+    margin:0;
+    
+    background:
+linear-gradient(135deg, #c1c1c1 22px, #c1c1c1 22px, #c1c1c1 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
+linear-gradient(225deg, #c1c1c1 22px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;
+background-color: lightgray;
+background-size: 64px 128px
+    
+    /* zmodyfikowano:
+    http://lea.verou.me/css3patterns/#weave
+    */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: underline;
+    color: white;
+}
+
+/* ################################33 */
+
+
+
+
+#zen-intro {
+
+	display: flex;
+	flex-direction:  column;
+    
+}
+
+
+#zen-intro, #zen-supporting, .sidebar {
+    color: aliceblue;
+}
+
+header, #zen-preamblr {
+    padding-left: 10vh;
+}
+
+header {
+    padding-top: 5vh;
+    letter-spacing: 3px;
+}
+
+/*css zen garden*/
+header h1 {
+    font-size: 90%;
+    background-color: orangered;
+    display: inline-block;
+    padding: 0.7em 1em;
+    border-radius: 10px;
+    margin-bottom: 0;
+    
+ 
+}
+
+/*the beauty of css */
+header h2 {
+    font-size: 200%;
+    background-color: rgba(195,29,91,0.8);
+    padding: 20px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-top: 10px;
+}
+
+
+/* A DEMONSTRATION OF ... */
+#zen-summary {
+    text-transform: uppercase;
+    font-style: italic;
+   
+}
+
+/* a demo..., so what is this abiut.. 
+    po lewej */
+#zen-summary, #zen-explanation, #zen-benefits, .sidebar {
+    
+    font-size: 90%;
+    background-color: rgba(160,29,91,0.8);;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+ 
+    
+    width: 70%;
+    margin-top: 10px;
+    padding-right: 30px;
+    
+    
+}
+
+#zen-summary p,#zen-explanation p, #zen-explanation h3, #zen-benefits p, #zen-benefits h3, .wrapper {
+   padding-left: 10vh;
+}
+
+/* the road to... 
+na prawo */
+#zen-preamble, #zen-requirements, #zen-participation {
+    background-color: rgba(195,29,91,0.8);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;    
+    padding: 20px;
+    margin-left: 10vh; 
+}
+
+#zen-preamble p, #zen-participation p, #zen-requirements p {
+    width: 70%;
+}
+
+
+#zen-supporting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+}
+
+
+.wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    
+}
+
+.wrapper ul {
+    list-style: none;
+}
+
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(200, 200, 100, 0.9);
+    padding: 7px;
+}

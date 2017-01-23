@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('print-style.css') print;
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: underline;
+}
+
+/* ################################33 */
+
+
+
+
+
+
+
+
+
+
+
+
+/* A DEMONSTRATION OF ... */
+#zen-summary {
+    text-transform: uppercase;
+    font-style: italic;
+   
+}
+
+/* a demo..., so what is this abiut.. 
+    po lewej */
+#zen-summary, #zen-explanation, #zen-benefits, .sidebar {
+    
+    font-size: 90%;
+    
+    
+    
+}
+
+
+.wrapper ul {
+    list-style: none;
+}
+
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(200, 200, 100, 0.9);
+    padding: 7px;
+}
+
+
