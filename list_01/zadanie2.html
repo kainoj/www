@@ -1,0 +1,54 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title> Index </title>
+
+		<!--tę linię dodałem z własnej inicjatywy-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+
+
+	<body>
+	  	<!-- róznica między div a span -->
+		<div> To jest div #1 </div>
+		<div> To jest div #2 </div>
+
+		<span> To jest span #1 </span>
+		<span> To jest span #2 </span>
+
+	<!-- zagnieżdżania -->
+
+		<!-- <span> <div> div w span - NIEPOPRAWNE </div></span> -->
+		<div> <span> span w div - OK </span></div>
+
+		<!--  <pre> <div> div w pre - NIEPOPRAWNE (pre - preformatted text)</div></pre> -->
+		<div> <pre> pre w div  - OK</pre></div>
+
+		<!-- <h1> <h2> h2 w h1 - NIEPOPRAWNE OFC </h2></h1> -->
+
+		<!-- <h1> <div> div w hx - NIEPOPRAWNE </div></h1> -->
+		<div> <h1> h1 w div - OK </h1></div>
+
+		<!-- <h1><p> p w hx - NIEPOPRAWNE</p></h1>  -->
+		<!-- <p> <h1> h1 w p - NIEPOPRAWNE</h1></p> -->
+
+		<!-- <a> <div> div jako odnosnik - NIEPOPRAWNE </div></a> -->
+		<div> <a> odnośnik w div - OK </a></div>
+
+		<!-- <strong><div>div w storng - NIEPOPRAWNIE</div></strong> -->
+		
+		<!--<strong><h1>h1 w stong - NIEPOPRAWNIE</h1></strong>-->
+		<h1><strong>strong w h1 - OK</strong></h1>
+
+		<!--<strong><pre>pre w strong - NIEPOPRAWNIE </pre></strong>-->
+
+
+
+	</body>
+
+</html>
