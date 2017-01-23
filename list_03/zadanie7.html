@@ -1,0 +1,53 @@
+ <!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title> Index </title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+		<style type="text/css">
+			h1 {
+				color: red;
+			}
+			h2 em{
+				color: red;
+			}
+			
+			p > a {
+				color: red;
+			}
+			h1 + h2 {
+				color: blue;
+			}
+			h1#idExample { color: grey; }
+			.classExample { color: purple; }
+		</style>
+	</head>
+
+
+	<body>
+	
+	<h1> Type selector - dopasuje się do każdego wystąpienia konkretnego
+elementu </h1> <hr/>
+
+	<h2> Descendant selectors - <em>Dopasuje</em> się do elementu, który jest potomkiem innego elementu  </h2><hr/>
+
+
+	<p>  Child selectors - Dopasuje się do <a href="#">elementu</a>, który jest dzieckiem innego elementu </p><hr/>
+
+	
+	<h1>Adjacent sibling selector</h1><h2>This selector means that the style applies only to paragraphs directly following another paragraph.
+A plain "p" selector would apply the style to every paragraph in the page.</h2><hr/>
+
+
+	<h1 id="idExample"> id selecor </h1>
+	<p class="classExample"> class selector </p>
+
+	</body>
+
+</html>

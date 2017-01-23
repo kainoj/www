@@ -1,0 +1,49 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title> Index </title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+		<style type="text/css">
+		.absolutne{
+		    position: absolute;
+		    left: 100px;
+		    top: 400px;
+		}	
+		.statyczne {
+			position: static;
+			color: brown;
+		}
+		.ustalone {
+			position: fixed;
+			left: 100;
+			right: 100;
+		}
+		.reletywne {
+			position: relative;
+			left:20px;
+		}
+	</style>
+	</head>
+
+
+	<body>		
+		<p class="absolutne">The element is positioned relative to its first positioned (not static) ancestor element</p>
+	
+
+
+	<p class="statyczne"> STATIC </p> <p class="statyczne">Default value. Elements render in order, as they appear in the document flow.</p>
+
+
+	<p class="ustalone">FIXED The element is positioned relative to the browser window</p>
+
+
+	<p class="reletywne">RELATIVE The element is positioned relative to its normal position, so "left:20px" adds 20 pixels to the element's LEFT position</p>
+	</body>
+</html>

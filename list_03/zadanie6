@@ -1,0 +1,11 @@
+
+
+
+
+
+Absolutne
+Znając rozmiary każdej pozycji (elementu) w sklepie można po prostu poukładać te elementy w układzie współżędnych (względem okna)
+
+
+Relatywne
+Wrzucić każdy element do wspólnego kontenera i w już w nim odpowiednio poustawiać elementy.
