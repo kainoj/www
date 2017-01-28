@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Maps</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ 
+</head>
+
+<body>      
+
+	<div id="map" style="width: 700px; height: 500px; border: 1px solid black;"></div>   
+   
+	<form id="coord">
+		<select name="coords" id="coords">
+			
+		</select>
+		</form>
+
+		<button id="show">Show</button>
+		<button id="del">Delete</button>
+
+		<script type="text/javascript">
+
+	var ids = 0;
+	var lats = [];
+	var lngs = [];
+	var markers = [];
+	var infoWindow;
+
+	function initMap()  
+	{   
+		var coords = new google.maps.LatLng(51.103090785229575,17.04082489013672);
+		var mapOptions = {
+		  zoom: 13,
+		  center: coords,
+		  disableDoubleClickZoom: true
+		  //disableDefaultUI: true,
+		};
+
+		var map = new google.maps.Map(document.getElementById("map"), mapOptions); 
+
+		infoWindow = new google.maps.InfoWindow({
+			content: "It's here",
+		});
+
+		map.addListener('dblclick', function(event) {
+		    var lat = event.latLng.lat();
+		    var lng = event.latLng.lng();
+		    
+		    var marker = new google.maps.Marker({
+			    position: {lat: lat, lng: lng},
+			    map: map
+			  });
+
+		    lats.push(lat);
+		    lngs.push(lng);
+		    markers.push(marker);
+
+		    $("#coords").append("<option value='"+ ids + "'>" + lat + " " + lng + "</option>");
+		    ids++;
+	  });
+		}
+
+		$('#show').click(function() {
+			var id = $( "#coords" ).val();
+			console.log("id = " + id);
+			console.log( "cord" + lats[id] );
+			infoWindow.open(map, markers[id]);
+		});
+
+		$('#del').click(function() {
+			var id = $( "#coords" ).val();
+			$( "#coords  option[value='" +id+ "']" ).remove();
+			markers[id].setMap(null);
+		});
+
+
+		</script>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+</body>      
+</html>
